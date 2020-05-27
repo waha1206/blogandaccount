@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ACCOUNT2</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'account2/style.css' %}">
+    </head>
+
+    <body>
+        <header>
+            <div class="logo">麥歐管理系統 <span class="lab">1</span></div>
+            <nav>
+                <div class="navitem"></div>
+                {% if request.user.is_authenticated %}
+                Hello {{ request.user.first_name }}
+                <a href="{% url 'account2:logout' %}">登出</a>
+                {% else %}
+                <a href="{% url 'account2:login' %}">登入</a>
+                {% endif %}
+                </div>
+            </nav>
+        </header>
+
+
+        {% block content %}
+        {% endblock content %}
+
+    </body>
+
+</html>

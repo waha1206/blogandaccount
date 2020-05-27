@@ -1,0 +1,50 @@
+{% extends 'blog\base.html' %}
+{% block content %}
+<hr>
+<h2>
+    {{ post.title }}
+</h2>
+<p>
+    Published {{ post.publish }} by {{ post.author }}
+</p>
+{{ post.body | linebreaks }}
+<hr />
+{% with comments.count as total_comments %}
+<h2>
+    {{ total_comments }} comment{{ total_comments|pluralize }}
+</h2>
+{% endwith %}
+
+{% for comment in comments.all  %}
+<div>
+    <p>
+        Comment by {{ comment.username }} {{ comment.created }}
+    </p>
+    {{ comment.body|linebreaks}}
+</div>
+{% empty %}
+<p>There are no comments yet.</p>
+{% endfor %}
+
+<h2>Similar posts</h2>
+<!-- post下面的tags會記錄所有類似的post放到similar objects下面 -->
+{% for post in post.tags.similar_objects %}
+<p>
+    <a href="{{ post.get_url }}">{{ post.title }}</a>
+</p>
+{% empty %}
+There are not similar posts yet.
+{% endfor %}
+<hr>
+
+{% if new_comment %}
+<h2>Your cpmment has been added.</h2>
+{% else %}
+<h2>Add a new comment</h2>
+<form action="." method="post">
+    {{ comment_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="送出評論"></p>
+</form>
+{% endif %}
+{% endblock content %}

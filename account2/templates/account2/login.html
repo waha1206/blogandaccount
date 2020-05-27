@@ -1,0 +1,21 @@
+{% extends 'account2_base.html' %}
+
+{% block title %}Login (Account2){% endblock title %}
+
+{% block content %}
+<h1>Login</h1>
+<p>請依表格的的欄位提示登入(Account2)</p>
+<form action="." method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="登入"></p>
+</form>
+
+{% endblock content %}
+
+<li>增加這功能的流程</li>
+<li>架構→MTV</li>
+<li>models.py 增加使用者表單</li>
+<li>views.py 製作輸入輸出的功能</li>
+<li>urls.py 設定好轉址</li>
+<li>把template html端寫好</li>

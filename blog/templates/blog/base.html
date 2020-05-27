@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BLOG</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+    </head>
+
+    <body>
+        <h1><a href="{% url "blog:post_list" %}"> My Blog </a></h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">blog</a>
+            <a href="#">Contact</a>
+            <a href="#">Career</a>
+        </nav>
+        {% block content %}
+        {% endblock content %}
+
+    </body>
+
+</html>
