@@ -5,6 +5,7 @@
 {% block content %}
 <h1>Login</h1>
 <p>請依表格的的欄位提示登入(Account2)</p>
+<p>或是註冊一個帳號  <a href="{% url "account2:register" %}">點我註冊</a> </p>
 <form action="." method="post">
     {{ form.as_p }}
     {% csrf_token %}

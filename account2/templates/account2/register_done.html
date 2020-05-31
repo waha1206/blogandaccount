@@ -1,0 +1,11 @@
+{% extends 'account2_base.html' %}
+
+{% block title %}Welcome(Account2){% endblock title %}
+
+{% block content %}
+<h1>歡迎 {{ new_user.first_name }}!</h1>
+<p>您的帳號成功的創建了</p>
+<p>現在您可以<a href="{% url "account2:login" %}">登入</a></p>
+
+
+{% endblock content %}

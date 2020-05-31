@@ -33,4 +33,6 @@
     "tailwindCSS.emmetCompletions": true,
     "editor.mouseWheelZoom": true,
     "html.format.indentInnerHtml": true, // 是否自動加上括號
+    "editor.formatOnSave": false,
+    "editor.insertSpaces": false
 }

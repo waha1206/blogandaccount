@@ -14,9 +14,13 @@
             <div class="logo">麥歐管理系統 <span class="lab">1</span></div>
             <nav>
                 <div class="navitem"></div>
+                <!-- 如果已經認證→登出 -->
                 {% if request.user.is_authenticated %}
-                Hello {{ request.user.first_name }}
+                <!-- Hello {{ request.user.first_name }} -->
+                <!-- 通常只會有username -->
+                Hello {{ request.user.username }}
                 <a href="{% url 'account2:logout' %}">登出</a>
+                <!-- 如果沒有認證→登入 -->
                 {% else %}
                 <a href="{% url 'account2:login' %}">登入</a>
                 {% endif %}

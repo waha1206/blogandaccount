@@ -1,0 +1,16 @@
+{% extends 'account2_base.html' %}
+
+{% block title %}resister(Account2){% endblock title %}
+
+{% block content %}
+<h1>Create an account</h1>
+<p>註冊請按照下面的表格欄位填寫內容</p>
+
+<form action="." method="POST">
+    {{ user_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="建立帳號"></p>
+</form>
+
+
+{% endblock content %}

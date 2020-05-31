@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
+# 當登入成功後的重定向頁面
 LOGIN_REDIRECT_URL = '/account2'
+# 如果尚未登入，就要去上面的頁面(dashboard.html)，會因為下面的設定，跑去login重定向的頁面
 LOGIN_URL = '/account2/login'
 LOGOUT_URL = '/account2/logout'
 
