@@ -139,3 +139,7 @@ cython_debug/
 
 # fonts
 fonts/
+
+#環境設定跟bat檔移除
+.vscode/*
+run.bat
