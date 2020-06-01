@@ -18,7 +18,11 @@ urlpatterns = [
     #     ),
     #     name='password_change'
     # ),
-    path('password-change/', auth_views.PasswordChangeView.as_view(success_url=reverse_lazy('account2:password_change_done')), name='password_change'),
+    path('password-change/',
+        auth_views.PasswordChangeView.as_view(
+            success_url=reverse_lazy('account2:password_change_done')
+        ),
+        name='password_change'),
     path(
         'password-change-done/',
         auth_views.PasswordChangeDoneView.as_view(

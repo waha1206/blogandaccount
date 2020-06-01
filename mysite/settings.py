@@ -11,11 +11,22 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+
+from django.conf.global_settings import AUTHENTICATION_BACKENDS
+
 # 當登入成功後的重定向頁面
 LOGIN_REDIRECT_URL = '/account2'
 # 如果尚未登入，就要去上面的頁面(dashboard.html)，會因為下面的設定，跑去login重定向的頁面
 LOGIN_URL = '/account2/login'
 LOGOUT_URL = '/account2/logout'
+
+# auth backends
+# 會先找ModelBackend 裡面的 認證方式，如，username + password 如果找不到就往下
+# 找EmailAuthBacskend 認證 在找不到就依序往下
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account2.authentication.EmailAuthBackend',
+]
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
