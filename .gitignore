@@ -139,3 +139,7 @@ cython_debug/
 
 # fonts
 fonts/
+
+# 忽略run.bat 與 .vscode/*
+run.bat
+.vscode/*
