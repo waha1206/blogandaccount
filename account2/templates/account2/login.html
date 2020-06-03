@@ -12,6 +12,8 @@
     <p><input type="submit" value="登入"></p>
 </form>
 <li class="google"><a href="{% url "social:begin" "google-oauth2" %}">使用GOOGLE帳號登入</a></li>
+<li class="github"><a href="{% url "social:begin" "github" %}">使用GITHUB帳號登入</a></li>
+<li class="facebook"><a href="{% url "social:begin" "facebook" %}">使用FACEBOOK帳號登入</a></li>
 
 {% endblock content %}
 

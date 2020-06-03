@@ -27,9 +27,16 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account2.authentication.EmailAuthBackend',
     'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
 ]
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1009032069824-0rk47irlktlbnvpv38cmg3u8n145hi5t.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'QjO-4IpwJJLWJraFbLBEIoVr'
+SOCIAL_AUTH_GITHUB_KEY = '8900eb40e3f13b4829bf'
+SOCIAL_AUTH_GITHUB_SECRET = '62d764354507657bbd2937c5c2976fe8adf172e4'
+SOCIAL_AUTH_FACEBOOK_KEY = '902159543542122'
+SOCIAL_AUTH_FACEBOOK_SECRET = '04478ac2bf49669f812aa2fc3f064bd1'
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
