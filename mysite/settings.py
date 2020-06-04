@@ -51,7 +51,8 @@ SECRET_KEY = '(9@#dvq!zkhn2txz@!lkl#9)l@77ig6m)&%22zrenv=_w%0vj&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mysite.com']
+# ALLOWED_HOSTS = ['mysite.com']
+ALLOWED_HOSTS = ['*']
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
