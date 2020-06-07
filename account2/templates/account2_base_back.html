@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ACCOUNT2</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'account2/style.css' %}">
+    </head>
+
+    <body>
+        <header>
+            <div class="logo">麥歐管理系統 <span class="lab">1</span></div>
+            <nav>
+                <div class="navitem"></div>
+                <!-- 如果已經認證→登出 -->
+                {% if request.user.is_authenticated %}
+                <!-- Hello {{ request.user.first_name }} -->
+                <!-- 通常只會有username -->
+                Hello {{ request.user.username }}
+                <a href="{% url 'account2:logout' %}">登出</a>
+                /<a href="{% url 'account2:password_change' %}">修改密碼</a>
+                <!-- 如果沒有認證→登入 -->
+                {% else %}
+                <a href="{% url 'account2:login' %}">登入</a>
+                {% endif %}
+                </div>
+            </nav>
+        </header>
+
+
+        {% block content %}
+        {% endblock content %}
+
+    </body>
+
+</html>
+
+{% url "images:image_list" %}
+
+
+  <li>
+    <a href="{% url "user_list" %}">Users</a>
+  </li>

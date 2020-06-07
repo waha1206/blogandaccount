@@ -1,31 +1,33 @@
-{% load static %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
   <title>{% block title %}{% endblock %}</title>
-  <link href="{% static "account2/style.css" %}" rel="stylesheet">
+  <link href="{% static "css/style.css" %}" rel="stylesheet">
 </head>
 <body>
   <div id="header">
-    <span class="logo">麥歐有限公司</span>
+    <span class="logo">WeShare</span>
     {% if request.user.is_authenticated %}
       <ul class="menu">
         <li>
-          <a href="{% url "account2:dashboard" %}">My dashboard</a>
+          <a href="{% url "dashboard" %}">My dashboard</a>
         </li>
         <li>
-          <a href="{% url "image:image_list" %}">Images</a>
-
+          <a href="{% url "images:image_list" %}">Images</a>
+        </li>
+        <li>
+          <a href="{% url "user_list" %}">Users</a>
         </li>
       </ul>
     {% endif %}
     <span class="user">
       {% if request.user.is_authenticated %}
-        Hello  <a href="{% url "account2:profile" request.user.username %}"><u>{{ request.user.first_name }}</u>,</a>
-        <a href="{% url "account2:logout" %}"><u>Logout</u></a>
-        /<a href="{% url "account2:password_change" %}"><u>Change Password</u></a>
+        Hello  <a href="{% url "profile" request.user.username %}"><u>{{ request.user.first_name }}</u>,</a>
+        <a href="{% url "logout" %}"><u>Logout</u></a>
+        /<a href="{% url "password_change" %}"><u>Change Password</u></a>
       {% else %}
-        <a href="{% url "account2:login" %}"><u>Log-in</u></a>
+        <a href="{% url "login" %}"><u>Log-in</u></a>
       {% endif %}
     </span>
   </div>

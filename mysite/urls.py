@@ -18,6 +18,10 @@ from argparse import Namespace
 
 from django.contrib import admin
 from django.urls import include, path
+from django.contrib.staticfiles.urls import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+from .settings import MEDIA_ROOT, MEDIA_URL
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +30,8 @@ urlpatterns = [
     path('account/', include('account.urls'), name='account'),
     path('account2/', include('account2.urls'), name='account2'),
     path('social-auth/', include('social_django.urls', namespace='social')),
+    path('image/', include('image.urls'), name='image'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)

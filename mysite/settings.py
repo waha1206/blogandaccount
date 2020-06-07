@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-from django.conf.global_settings import AUTHENTICATION_BACKENDS
+from django.conf.global_settings import (AUTHENTICATION_BACKENDS, MEDIA_ROOT,
+                                         MEDIA_URL)
 
 # 當登入成功後的重定向頁面
 LOGIN_REDIRECT_URL = '/account2'
@@ -79,6 +80,8 @@ INSTALLED_APPS = [
     'account2.apps.Account2Config',
     'taggit',
     'social_django',
+    'image.apps.ImageConfig',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
@@ -180,3 +183,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
