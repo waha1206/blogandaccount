@@ -26,4 +26,20 @@
 	</div>
 {% endfor %}
 </div>
+<div>
+	<p> 爸，我在這裡 </p>
+    <ul>
+      {% if images.has_previous %}
+        <li>
+          <a href="?page={{ images.previous_page_number }}"> &larr; Newer images</a>
+        </li>
+      {% endif %}
+      {% if images.has_next %}
+        <li>
+          <a href="?page={{ images.next_page_number }}">Older images &rarr;</a>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+
 {% endblock content %}
